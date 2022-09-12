@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shorther Result</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/page.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="">
+        <section class="ftco-section">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">Url Shorther Result</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="wrap">
+                            <div class="img" style="background-image:url('./static/img/beach.jpg')">
+                            </div>
+                            <div class="login-wrap">
+                                <div class="d-flex">
+                                    <div class="w-100">
+                                        <div class="col-md-6" style="height: 300px;overflow-y:auto;overflow-x:auto;">
+                                            <table class="table table-border">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="text-align: center;">Real Url</th>
+                                                        <th style="text-align: center;">Abbreviated Url</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% if value %}
+                                                        {% for value_ in value %}
+                                                            <tr class="success">
+                                                                <td>
+                                                                    <b>{{value_[0]}} <br/>
+                                                                </td>
+                                                                <td>
+                                                                    <b>{{value_[1]}} <br/>
+                                                                </td>
+                                                            </tr>   
+                                                        {%endfor%}
+                                                    {% else %}
+                                                        <tr class="success">
+                                                            <td style="text-align: center;">
+                                                                <b>Null </b>
+                                                            </td>
+                                                            <td style="text-align: center;">
+                                                                <b>Null </b>
+                                                            </td>
+                                                        </tr>
+                                                    {% endif %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6 pt-0" style="height: 300px;overflow-y:auto;overflow-x:auto;">
+                                            <table class="table table-border">
+                                              <thead>
+                                                  <tr style="text-align: center;">
+                                                    <div style="text-align: center;padding: 8px;"><b>Errors</b></div>
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                  {% if info == 0 %}
+                                                      <td></td>
+                                                      <td></td>
+                                                      <td style="text-align:center;text-transform:none !important;">No Error</td>
+                                                      <td></td>
+                                                      <td></td>
+                                                  {% else %}
+                                                      {% for info_ in info %}
+                                                          <tr class="success">
+                                                              <td>
+                                                                  <b>{{info_[0]}} <br/>
+                                                              </td>
+                                                              <td>
+                                                                  <b>{{info_[1]}} <br/>
+                                                              </td>
+                                                          </tr>   
+                                                      {%endfor%}
+                                                  {% endif %}
+                                              </tbody>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
